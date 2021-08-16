@@ -8,9 +8,9 @@ function Gauss(A)
 	PrintVector(A);
 	fprintf('\n');
 
-	for currentLineID=1:numeroLinhas-1
+	for currentLinePos=1:numeroLinhas-1
 		fprintf('---------------------------------------------------------\nStep %d:\n', passo++);
-		A = MultiplyFromLine(A, currentLineID);
+		A = MultiplyFromLine(A, currentLinePos);
 	endfor
 
 	fprintf('\n=========================================================\nFinal Matrix A =\n');
