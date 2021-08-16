@@ -9,24 +9,8 @@ function Gauss(A)
 	fprintf('\n');
 
 	for currentLineID=1:numeroLinhas-1
-		currentLine = A(currentLineID,:);
 		fprintf('---------------------------------------------------------\nStep %d:\n', passo++);
-		for nextLineID=currentLineID+1:numeroLinhas
-			nextLine = A(nextLineID,:);
-			
-			#Calculua multiplicador
-			multiplier = nextLine(currentLineID)/currentLine(currentLineID);
-			fprintf(	'Multiplier at line %d is m%d%d = %d/%d = %d\n',
-						nextLineID, nextLineID, currentLineID, nextLine(currentLineID), currentLine(currentLineID), multiplier);
-
-			#Aplica multiplier na príxma linha
-			nextLine -= currentLine * multiplier;
-			A(nextLineID,:) = nextLine;
-		endfor
-
-		fprintf('\nMatrix A = \n');
-		PrintVector(A);
-		fprintf('\n');
+		A = MultiplyFromLine(A, currentLineID);
 	endfor
 
 	fprintf('\n=========================================================\nFinal Matrix A =\n');
