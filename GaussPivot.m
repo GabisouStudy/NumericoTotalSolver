@@ -2,7 +2,7 @@ function GaussPivot(A)
 	format short g
 	[numeroLinhas,numeroColunas]=size(A);
 
-	passo = 0;
+	passo = 1;
 
 	fprintf('Input Matrix A = \n');
 	PrintVector(A);
