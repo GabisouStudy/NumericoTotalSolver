@@ -1,4 +1,4 @@
-function result = PivotingFromColumnP(A, columnPos, P = -1)
+function [outputU, outputP] = PivotingFromColumnP(A, columnPos, P = -1)
 	[numeroLinhas,numeroColunas]=size(A);
 	currentColumn = A(:,columnPos);
 
@@ -31,5 +31,6 @@ function result = PivotingFromColumnP(A, columnPos, P = -1)
 		fprintf('.........................................................\n');
 	endif
 
-	result = A;
+	outputU = A;
+	outputP = P;
 endfunction
