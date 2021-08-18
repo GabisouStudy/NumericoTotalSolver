@@ -17,8 +17,9 @@ function SassCriteria(A)
 			if(currentColumnPos != currentLinePos)
 				currentValue = abs(currentVariables(currentColumnPos));
 				if(betas(currentColumnPos) != -inf)
-					currentValue = abs(betas(currentColumnPos));
+					currentValue = abs(currentVariables(currentColumnPos));
 					fprintf('|%d * %d|', betas(currentColumnPos), currentValue);
+					currentValue = abs(currentVariables(currentColumnPos) * betas(currentColumnPos));
 				else
 					fprintf('|%d|', currentValue);
 				endif
