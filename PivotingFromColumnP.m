@@ -1,4 +1,4 @@
-function result = PivotingFromColumn(A, columnPos, P = -1)
+function result = PivotingFromColumnP(A, columnPos, P = -1)
 	[numeroLinhas,numeroColunas]=size(A);
 	currentColumn = A(:,columnPos);
 
@@ -19,7 +19,15 @@ function result = PivotingFromColumn(A, columnPos, P = -1)
 		PrintVector(A);
 		fprintf('\n');
 		fprintf('\n');
-		
+
+		if(P != -1)
+			fprintf('\nPivoted Matrix P = \n');
+			temp = P(columnPos,:);
+			P(columnPos,:) = P(realMaxInColumnPos,:);
+			P(realMaxInColumnPos,:) = temp;
+			PrintVector(P);
+		endif
+
 		fprintf('.........................................................\n');
 	endif
 

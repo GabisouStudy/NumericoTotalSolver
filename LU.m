@@ -1,4 +1,4 @@
-function GaussPivot(A)
+function LU(A)
 	format short g
 	#format rat
 	[numeroLinhas,numeroColunas]=size(A);
