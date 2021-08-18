@@ -35,11 +35,11 @@ function SeidelError(initials, outputs, stopValue)
 		for currentVarPos=1:variablesAmount
 			fprintf('|%d|', currentVariables(currentVarPos));
 			if(currentVarPos < variablesAmount)
-			fprintf(',');
+				fprintf(',');
 			endif
 		endfor
 
-		variblesNumerator = currentVariables - previousVariables;
+		variblesNumerator = abs(currentVariables - previousVariables);
 		numerator = max(variblesNumerator);
 		denominator = max(currentVariables);
 		errorValue = numerator/denominator;
