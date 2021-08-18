@@ -36,7 +36,7 @@ function SeidelError(initials, outputs, stopValue)
 		fprintf(')\n = %d/%d = %d\n', numerator, denominator, errorValue);
 
 		if(errorValue < stopValue)
-			fprintf('Stop condition met: %d < %d', errorValue, stopValue);
+			fprintf('Stop condition met: %d < %d\n', errorValue, stopValue);
 			break;
 		endif
 	endfor
