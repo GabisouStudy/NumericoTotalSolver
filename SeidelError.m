@@ -13,15 +13,24 @@ function SeidelError(initials, outputs, stopValue)
 
 		currentVariables = outputs(currentIteration,:);
 
-		fprintf('---------------------------------------------------------Iteration %d:\n', currentIteration);
+		fprintf('\n---------------------------------------------------------\n\nIteration %d:\n', currentIteration);
 
-		fprintf('Numerator:\tmax(');
+		fprintf('\nNumerator:\tmax(');
 		for currentVarPos=1:variablesAmount
 			fprintf('|%d - %d|', currentVariables(currentVarPos), previousVariables(currentVarPos));
 			if(currentVarPos < variablesAmount)
 			fprintf(',');
 			endif
 		endfor
+
+		fprintf('\nNumerator:\tmax(');
+		for currentVarPos=1:variablesAmount
+			fprintf('|%d|', currentVariables(currentVarPos) - previousVariables(currentVarPos));
+			if(currentVarPos < variablesAmount)
+			fprintf(',');
+			endif
+		endfor
+		
 		fprintf(')\nDenominator:\tmax(');
 		for currentVarPos=1:variablesAmount
 			fprintf('|%d|', currentVariables(currentVarPos));
@@ -29,6 +38,7 @@ function SeidelError(initials, outputs, stopValue)
 			fprintf(',');
 			endif
 		endfor
+
 		variblesNumerator = currentVariables - previousVariables;
 		numerator = max(variblesNumerator);
 		denominator = max(currentVariables);
@@ -36,7 +46,7 @@ function SeidelError(initials, outputs, stopValue)
 		fprintf(')\n = %d/%d = %d\n', numerator, denominator, errorValue);
 
 		if(errorValue < stopValue)
-			fprintf('Stop condition met: %d < %d\n', errorValue, stopValue);
+			fprintf('\n=========================================================\n\nStop condition met: %d < %d\n', errorValue, stopValue);
 			break;
 		endif
 	endfor
